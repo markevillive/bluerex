@@ -18,5 +18,7 @@ Creating a WordPress theme based on the "Creative Agency" HTML template
 
 ## Lesson 3
 - В консоли созданы страницы Home и Blog
-
+- В консоли назначена главная страница (Home) и страница записей (Blog)
+- Добавлен файл front-page.php , в который скопирован код из page.php.
+ 
 
