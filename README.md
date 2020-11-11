@@ -17,5 +17,6 @@ Creating a WordPress theme based on the "Creative Agency" HTML template
 - установлен плагин Duplicate PP
 
 ## Lesson 3
+- В консоли созданы страницы Home и Blog
 
 
