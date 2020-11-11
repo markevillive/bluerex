@@ -8,3 +8,4 @@ Creating a WordPress theme based on the "Creative Agency" HTML template
 
 - На сайте [underscores.me](https://underscores.me/) созданна базовая тема Wordpress под назанием  bluerex
 - Файлы темы перемещены в папку bluerex
+- Добавлен файл скриншота
