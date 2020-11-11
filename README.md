@@ -10,4 +10,12 @@ Creating a WordPress theme based on the "Creative Agency" HTML template
 - Файлы темы перемещены в папку bluerex
 - Добавлен файл скриншота
 - Изменен корневой style.css
-- 
+- Тема активирована
+- установлен плагин advanced custom fields
+- установлен плагин Cyr-To-Lat
+- установлен плагин Show Current Template
+- установлен плагин Duplicate PP
+
+## Lesson 3
+
+
