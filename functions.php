@@ -140,14 +140,22 @@ add_action( 'widgets_init', 'bluerex_widgets_init' );
  * Enqueue scripts and styles.
  */
 function bluerex_scripts() {
-	wp_enqueue_style( 'bluerex-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'bluerex-style', 'rtl', 'replace' );
+    wp_enqueue_style( 'bluerex-style', get_stylesheet_uri(), array(), _S_VERSION );
+    wp_enqueue_style( 'bluerex-bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css');
+    wp_enqueue_style( 'bluerex-fontawesome-css', 'https://use.fontawesome.com/releases/v5.7.0/css/all.css');
+    wp_enqueue_style( 'bluerex-googlefonts-css', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap' );
+    wp_enqueue_style( 'bluerex-baguetteBox-css', get_template_directory_uri() . '/assets/css/baguetteBox.css' );
+    wp_enqueue_style( 'bluerex-style-css', get_template_directory_uri() . '/assets/css/style.css' );
 
-	wp_enqueue_script( 'bluerex-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', 'https://code.jquery.com/jquery-3.5.1.js');
+    wp_enqueue_script( 'jquery' );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+    wp_enqueue_script('bluerex-popper-js', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js', array(), '', true);
+    wp_enqueue_script('bluerex-bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js', array(), '', true);
+    wp_enqueue_script('bluerex-baguetteBox-js', get_template_directory_uri() . '/assets/js/baguetteBox.js', array(), '', true);
+    wp_enqueue_script('bluerex-main-js', get_template_directory_uri() . '/assets/js/main.js', array(), '', true);
+
 }
 add_action( 'wp_enqueue_scripts', 'bluerex_scripts' );
 

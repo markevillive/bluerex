@@ -5,9 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <style>
         .preloader{
             position: fixed;
@@ -19,23 +16,21 @@
             background-color: #fefefe;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/baguetteBox.css">
     <title>Creative Agency</title>
+    <?php wp_head() ?>
 </head>
 <body>
 
-<!--Preloader--<div class="preloader d-flex justify-content-center align-items-center">
+<div class="preloader d-flex justify-content-center align-items-center">
     <div class="spinner-border text-danger" style="width: 10rem; height: 10rem ; role="status" >
     <span class="sr-only">Loading...</span>
 </div>
-</div>---End preloader-->
+</div>
 <!----------------------------------------------END PRELOADER---------------------------------------------------->
 <button class="scrollToTop"><i class="fas fa-angle-up"></i> </button>
 <header class="main-header">
     <nav class="navbar navbar-expand-lg ">
-        <a class="navbar-brand" href="#"><img src="img/logo.png">BlueRex</a>
+        <a class="navbar-brand" href="#"><img src="<?php bloginfo( 'template_url') ?>/assets/img/logo.png">BlueRex</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
@@ -121,7 +116,7 @@
                 </div>
             </div><!---End col--->
             <div class="col-lg-6 text-center">
-                <img src="img/watch.png">
+                <img src="<?php bloginfo('template_url') ?>/assets/img/watch.png" alt="">
             </div>
         </div><!-----End row----->
     </div><!----End container---->
@@ -238,94 +233,94 @@
                     <div class="tab-pane fade show active" id="webdesign2" role="tabpanel" aria-labelledby="webdesign-tab2">
                         <div class="gallery text-center row">
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/bag.jpg"><img src="img/galery/bag_s.jpg"></a>
+                                <a href="img/galery/bag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/bag_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/beer.jpg"><img src="img/galery/beer_s.jpg"></a>
+                                <a href="img/galery/beer.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/beer_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/book.jpg"><img src="img/galery/book_s.jpg"></a>
+                                <a href="img/galery/book.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/book_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/box.jpg"><img src="img/galery/box_s.jpg"></a>
+                                <a href="img/galery/box.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/box_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/cup.jpg"><img src="img/galery/cup_s.jpg"></a>
+                                <a href="img/galery/cup.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/cup_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/labeltag.jpg"><img src="img/galery/labeltag_s.jpg"></a>
+                                <a href="img/galery/labeltag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/labeltag_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/lotion.jpg"><img src="img/galery/lotion_s.jpg"></a>
+                                <a href="img/galery/lotion.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/lotion_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shampoo.jpg"><img src="img/galery/shampoo_s.jpg"></a>
+                                <a href="img/galery/shampoo.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shampoo_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shirt.jpg"><img src="img/galery/shirt_s.jpg"></a>
+                                <a href="img/galery/shirt.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shirt_s.jpg"></a>
                             </div>
                         </div><!--gallery-->
                     </div>
                     <div class="tab-pane fade" id="mobileapp2" role="tabpanel" aria-labelledby="mobileapp-tab2">
                         <div class="gallery text-center row">
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/bag.jpg"><img src="img/galery/bag_s.jpg"></a>
+                                <a href="img/galery/bag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/bag_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/beer.jpg"><img src="img/galery/beer_s.jpg"></a>
+                                <a href="img/galery/beer.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/beer_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/book.jpg"><img src="img/galery/book_s.jpg"></a>
+                                <a href="img/galery/book.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/book_s.jpg"></a>
                             </div>
 
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/lotion.jpg"><img src="img/galery/lotion_s.jpg"></a>
+                                <a href="img/galery/lotion.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/lotion_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shampoo.jpg"><img src="img/galery/shampoo_s.jpg"></a>
+                                <a href="img/galery/shampoo.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shampoo_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shirt.jpg"><img src="img/galery/shirt_s.jpg"></a>
+                                <a href="img/galery/shirt.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shirt_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/box.jpg"><img src="img/galery/box_s.jpg"></a>
+                                <a href="img/galery/box.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/box_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/cup.jpg"><img src="img/galery/cup_s.jpg"></a>
+                                <a href="img/galery/cup.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/cup_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/labeltag.jpg"><img src="img/galery/labeltag_s.jpg"></a>
+                                <a href="img/galery/labeltag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/labeltag_s.jpg"></a>
                             </div>
                         </div><!--gallery-->
                     </div>
                     <div class="tab-pane fade" id="branding2" role="tabpanel" aria-labelledby="branding-tab2">
                         <div class="gallery text-center row">
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/lotion.jpg"><img src="img/galery/lotion_s.jpg"></a>
+                                <a href="img/galery/lotion.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/lotion_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shampoo.jpg"><img src="img/galery/shampoo_s.jpg"></a>
+                                <a href="img/galery/shampoo.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shampoo_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shirt.jpg"><img src="img/galery/shirt_s.jpg"></a>
+                                <a href="img/galery/shirt.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shirt_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/bag.jpg"><img src="img/galery/bag_s.jpg"></a>
+                                <a href="img/galery/bag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/bag_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/beer.jpg"><img src="img/galery/beer_s.jpg"></a>
+                                <a href="img/galery/beer.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/beer_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/book.jpg"><img src="img/galery/book_s.jpg"></a>
+                                <a href="img/galery/book.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/book_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/box.jpg"><img src="img/galery/box_s.jpg"></a>
+                                <a href="img/galery/box.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/box_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/cup.jpg"><img src="img/galery/cup_s.jpg"></a>
+                                <a href="img/galery/cup.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/cup_s.jpg"></a>
                             </div>
                             <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/labeltag.jpg"><img src="img/galery/labeltag_s.jpg"></a>
+                                <a href="img/galery/labeltag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/labeltag_s.jpg"></a>
                             </div>
 
                         </div><!--gallery-->
@@ -338,16 +333,16 @@
 <section class="section-brands text-center">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3"><a href="#"><img src="img/cisco.png"></a> </div>
-            <div class="col-sm-3"><a href="#"><img src="img/adidas.png"></a> </div>
-            <div class="col-sm-3"><a href="#"><img src="img/lenovo.png"></a> </div>
-            <div class="col-sm-3"><a href="#"><img src="img/disney.png"></a> </div>
+            <div class="col-sm-3"><a href="#"><img src="<?php bloginfo( 'template_url') ?>/assets/img/cisco.png"></a> </div>
+            <div class="col-sm-3"><a href="#"><img src="<?php bloginfo( 'template_url') ?>/assets/img/adidas.png"></a> </div>
+            <div class="col-sm-3"><a href="#"><img src="<?php bloginfo( 'template_url') ?>/assets/img/lenovo.png"></a> </div>
+            <div class="col-sm-3"><a href="#"><img src="<?php bloginfo( 'template_url') ?>/assets/img/disney.png"></a> </div>
         </div><!-----End row------>
         <div class="row">
-            <div class="col-sm-3" ><a href="#"><img src="img/amazon.png"></a> </div>
-            <div class="col-sm-3"><a href="#"><img src="img/puma.png"></a></div>
-            <div class="col-sm-3"><a href="#"><img src="img/apple.png"></a></div>
-            <div class="col-sm-3"><a href="#"><img src="img/mini.png"><a></div>
+            <div class="col-sm-3" ><a href="#"><img src="<?php bloginfo( 'template_url') ?>/assets/img/amazon.png"></a> </div>
+            <div class="col-sm-3"><a href="#"><img src="<?php bloginfo( 'template_url') ?>/assets/img/puma.png"></a></div>
+            <div class="col-sm-3"><a href="#"><img src="<?php bloginfo( 'template_url') ?>/assets/img/apple.png"></a></div>
+            <div class="col-sm-3"><a href="#"><img src="<?php bloginfo( 'template_url') ?>/assets/img/mini.png"><a></div>
         </div><!-------End row-------->
 
     </div><!-----------End container----------->
@@ -373,7 +368,7 @@
                                 </blockquote>
                             </div>
                         </div><!--END COL-SM-7-->
-                        <div class="col-sm-5 d-none d-sm-block"><img src="img/client.png" alt="John Doe"></div><!--END COL-SM-5-->
+                        <div class="col-sm-5 d-none d-sm-block"><img src="<?php bloginfo( 'template_url') ?>/assets/img/client.png" alt="John Doe"></div><!--END COL-SM-5-->
                     </div><!---END ROW--->
                 </div><!---------END CONTAINER-------->
             </div>
@@ -390,7 +385,7 @@
                                 </blockquote>
                             </div>
                         </div><!--END COL-SM-7-->
-                        <div class="col-sm-5 d-none d-sm-block"><img src="img/lee.png" alt="Robert lee"></div><!--END COL-SM-5-->
+                        <div class="col-sm-5 d-none d-sm-block"><img src="<?php bloginfo( 'template_url') ?>/assets/img/lee.png" alt="Robert lee"></div><!--END COL-SM-5-->
                     </div><!---END ROW--->
                 </div><!---------END CONTAINER-------->
             </div>
@@ -407,7 +402,7 @@
                                 </blockquote>
                             </div>
                         </div><!--END COL-SM-7-->
-                        <div class="col-sm-5 d-none d-sm-block"><img src="img/forrest.png" alt="Nataniel Forrest"></div><!--END COL-SM-5-->
+                        <div class="col-sm-5 d-none d-sm-block"><img src="<?php bloginfo( 'template_url') ?>/assets/img/forrest.png" alt="Nataniel Forrest"></div><!--END COL-SM-5-->
                     </div><!---END ROW--->
                 </div><!---------END CONTAINER-------->
 
@@ -512,12 +507,12 @@
             <div class="col-md-6 footer-images">
                 <div class="container">
                     <div class="row">
-                        <div class="col-6"><img src="img/footerImage_1.jpg" alt="image-1"></div>
-                        <div class="col-6"><img src="img/footerImage_2.jpg" alt="image-2"></div>
+                        <div class="col-6"><img src="<?php bloginfo( 'template_url') ?>/assets/img/footerImage_1.jpg" alt="image-1"></div>
+                        <div class="col-6"><img src="<?php bloginfo( 'template_url') ?>/assets/img/footerImage_2.jpg" alt="image-2"></div>
                     </div><!----------------------------End Row----------------------------->
                     <div class="row">
-                        <div class="col-6"><img src="img/footerImage_3.jpg" alt="image-3"></div>
-                        <div class="col-6"><img src="img/footerImage_4.jpg" alt="image-4"></div>
+                        <div class="col-6"><img src="<?php bloginfo( 'template_url') ?>/assets/img/footerImage_3.jpg" alt="image-3"></div>
+                        <div class="col-6"><img src="<?php bloginfo( 'template_url') ?>/assets/img/footerImage_4.jpg" alt="image-4"></div>
                     </div><!----------------------------End Row----------------------------->
 
                 </div><!--end container-->
@@ -551,5 +546,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 <script src="js/main.js"></script>
 <script src="js/baguetteBox.js"></script>
+<?php wp_footer() ?>
 </body>
 </html>
