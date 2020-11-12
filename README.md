@@ -104,11 +104,37 @@ function bluerex_scripts() {
 
 ## Динамический логотип
 
-В файле *functions.php* заданы параметры логотипа в функции `add_theme_support('custom-logo', array())`:
+В файле *functions.php* заданы размеры логотипа в функции `add_theme_support('custom-logo', array())`:
 
 ```php
-
+add_theme_support(
+			'custom-logo',
+			array(
+				'height'      => 69,
+				'width'       => 62,
+				'flex-width'  => true,
+				'flex-height' => true,
+			)
+		);
+	}
 ```
+
+Изображение *logo.png* добавленно в качестве логотипа через консоль **Wordpress**
+
+Логотип подключен в файле *front-page.php**
+```php
+        <a class="navbar-brand" href="<?php echo home_url('/')?>">
+            <?php
+            $custom_logo = wp_get_attachment_image_src( get_theme_mod('custom_logo'));
+            if ($custom_logo):
+            ?>
+            <img src="<?php echo $custom_logo[0]?>" alt="<?php bloginfo('name') ?>">
+
+            <?php endif; ?>
+            <?php bloginfo('name') ?>
+        </a>
+```
+
 
 
 

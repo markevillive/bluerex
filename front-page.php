@@ -20,7 +20,6 @@
     <?php wp_head() ?>
 </head>
 <body>
-
 <div class="preloader d-flex justify-content-center align-items-center">
     <div class="spinner-border text-danger" style="width: 10rem; height: 10rem ; role="status" >
     <span class="sr-only">Loading...</span>
@@ -30,7 +29,16 @@
 <button class="scrollToTop"><i class="fas fa-angle-up"></i> </button>
 <header class="main-header">
     <nav class="navbar navbar-expand-lg ">
-        <a class="navbar-brand" href="#"><img src="<?php bloginfo( 'template_url') ?>/assets/img/logo.png">BlueRex</a>
+        <a class="navbar-brand" href="<?php echo home_url('/')?>">
+            <?php
+            $custom_logo = wp_get_attachment_image_src( get_theme_mod('custom_logo'));
+            if ($custom_logo):
+            ?>
+            <img src="<?php echo $custom_logo[0]?>" alt="<?php bloginfo('name') ?>">
+
+            <?php endif; ?>
+            <?php bloginfo('name') ?>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>

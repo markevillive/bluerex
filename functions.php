@@ -94,8 +94,8 @@ if ( ! function_exists( 'bluerex_setup' ) ) :
 		add_theme_support(
 			'custom-logo',
 			array(
-				'height'      => 250,
-				'width'       => 250,
+				'height'      => 69,
+				'width'       => 62,
 				'flex-width'  => true,
 				'flex-height' => true,
 			)
@@ -185,4 +185,7 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
+//--------------CUSTOM FUNCTIONS
+function bluerex_debug($data){
+    echo '<pre>' . print_r($data) . '</pre>';
+}
