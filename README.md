@@ -134,6 +134,7 @@ add_theme_support(
             <?php bloginfo('name') ?>
         </a>
 ```
+## Lesson 6 Header menu
 
 
 
