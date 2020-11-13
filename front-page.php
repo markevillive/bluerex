@@ -1,4 +1,14 @@
 <?php get_header('main') ?>
+<?php
+$design_cat = get_category(3);
+//bluerex_debug($design_cat);
+if($design_cat):
+    $posts = get_posts( array(
+        'numberposts' => 3,
+        'category' => 3,
+    ) );
+    bluerex_debug($posts);
+    ?>
 <section class="section-watch section-tabs">
     <div class="container">
         <div class="row">
@@ -44,6 +54,7 @@
     </div><!----End container---->
 
 </section><!-----------------------End section1----------------------->
+<?php endif ?>
 <section class="section-progress text-center">
     <div class="container">
         <div class="row">

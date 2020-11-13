@@ -201,7 +201,7 @@ function bluerex_get_background($field, $cat = null, $cover = true){
 <header class="main-header" <?php echo bluerex_get_background('header_bg') ?> >
 ```
 
-## Header & footer templates
+## Lesson 8 Header & footer templates
 ### Get header
 - Код главной страницы от *DOCTYPE* до конца хедера перенесен в файл *header.php*. 
 - Создан файл *header-main.php* куда так же добавлен этот код.
@@ -217,3 +217,15 @@ function bluerex_get_background($field, $cat = null, $cover = true){
 ```
 - Из файлов *header.php* и *header-main.php* удален тег title.
 
+## Lesson 9 Section Watch.
+>Данная секция предназначена для вывода рубрики
+
+#### Действия в консоли
+- Добавлена группа полей Категории (Условия "Таксономия = Рубрики).
+ - Добавлено поле "Заголовок", id="section_header", тип поля - текст.
+ - Добавлено поле "Фоновое изображение" id="section_img", тип поля - изображение, возвращаемый формат - ссылка на изображение.
+ - Добавлено поле "Дополнительное изображение" id="section_add_img", тип поля - изображение, возвращаемый формат - ссылка на изображение.
+ - Добавлено поле "Видео" id="section_video", тип поля - текст.
+- В консоли в разделе записи - рубрики создана рубрика Web Design. Заголовок "Dream Big Inspire the World", Описание "We turns creative ideas into your business", добавлены фоновое и дополнительное изображение.
+- Созданы три статьи в рубрике  Web Design содержащие несколько абзацев Lorem Ipsum.
+### PHP
