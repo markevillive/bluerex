@@ -29,8 +29,9 @@ h4{
 
 /*==================================Header======================================================*/
 .main-header{
-    background: url("../img/main_1.jpg") center no-repeat;
-    background-size: cover;
+   /* background: url("../img/main_1.jpg") center no-repeat;
+    background-size: cover;*/
+    background: linear-gradient(45deg, #ed1b33 0%,#442e82 100%);
     height: 100vh;
     min-height: 700px;
     position: relative;
@@ -80,9 +81,7 @@ h4{
     text-transform: uppercase;
 }
 .main-header-buttons .btn{
-    height: 60px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 20px 40px;
     margin-right: 20px;
     margin-top: 30px;
     opacity: 80%;

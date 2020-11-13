@@ -27,7 +27,7 @@
 </div>
 <!----------------------------------------------END PRELOADER---------------------------------------------------->
 <button class="scrollToTop"><i class="fas fa-angle-up"></i> </button>
-<header class="main-header">
+<header class="main-header" <?php echo bluerex_get_background('header_bg') ?> >
     <nav class="navbar navbar-expand-lg ">
         <a class="navbar-brand" href="<?php echo home_url('/')?>">
             <?php
@@ -55,14 +55,35 @@
         </div>
     </nav>
     <div class="main-header-text">
-        <h3>We are best and creative agency</h3>
-        <h4>We turn creative ideas into your business</h4>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sem massa, tempor eu risus ac.
-        </p>
+                <?php if (get_field('header1')): ?>
+                    <h3><?php the_field('header1') ?></h3>
+                <?php endif; ?>
+
+                <?php if (get_field('header2')):?>
+                    <h4><?php the_field('header2') ?></h4>
+                <?php endif; ?>
+
+                <?php if (get_field('header_text')):?>
+                    <p><?php the_field('header_text') ?> </p>
+                <?php endif; ?>
+
         <div class="main-header-buttons">
-            <button type="button" class="btn btn-pink rounded-pill">Our story</button>
-            <button type="button" class="btn btn-violet rounded-pill">Read more</button>
+            <?php if (get_field('header_btn1')):
+                $link = get_field('header_btn1');
+                ?>
+                <a href="<?php echo esc_url($link['url']); ?>" class="btn btn-pink rounded-pill">
+                    <?php echo esc_html($link['title']); ?>
+                </a>
+            <?php endif; ?>
+
+            <?php
+                if (get_field('header_btn2')):
+                $link = get_field('header_btn2');
+            ?>
+                <a href="<?php echo esc_url($link['url']); ?>" class="btn btn-violet rounded-pill">
+                    <?php echo esc_html($link['title']); ?>
+                </a>
+            <?php endif; ?>
         </div><!--------------End Buttons---------------->
     </div><!-------------end Main Header Text---------------------------------->
 

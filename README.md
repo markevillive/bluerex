@@ -144,9 +144,63 @@ add_theme_support(
 }
 ```
 > UPDATE
->После замены файла *style.css* на оригинальный из урока (с добавлением стилей пропущенныч секций) все работает!
+>После замены файла *style.css* на оригинальный из урока (с добавлением стилей пропущенных секций) все работает!
 
-## Lesson 7 Вывод произвольных полей шапки
+## Lesson 7 Displaying custom header fields
+
+### Header 1 & Header 2
+
+Динамический вывод заголовков осуществлен при помощи функции `get_field()`.
+
+```php
+<?php if (get_field('header1')):?>
+        <h3><?php the_field('header1') ?></h3>
+<?php endif; ?>
+```
+### Header text
+Точно таким же образом с заменой параметра функциии на `header_text`.
+
+
+### Header Buttons
+#### Вывод кнопок
+Так же при помощи функции `get_field()`.
+```php
+<?php if (get_field('header_btn1')): 
+    $link = get_field('header_btn1');
+?>
+<a href="<?php echo esc_url($link['url']); ?>" class="btn btn-pink rounded-pill">
+    <?php echo esc_html($link['title']); ?>
+</a>
+<?php endif; ?>
+```
+#### Исправление стилей
+```css
+.main-header-buttons .btn{
+    padding: 20px 40px;
+    margin-right: 20px;
+    margin-top: 30px;
+    opacity: 80%;
+    box-shadow: 0 4px 16px rgba(0,0,0, .35);
+    transition: all .5s;
+}
+```
+### Header Background
+#### Functions.php
+Добавлена кастомная функция `bluerex_get_background`
+```php
+function bluerex_get_background($field, $cat = null, $cover = true){
+    if( get_field($field, $cat) ){
+        $add_style = $cover ? 'background-size: cover;' : '';
+        return ' style="background: url(' . get_field($field, $cat) . ') center no-repeat; ' . $add_style . '"';
+    }
+    return null;
+}
+```
+#### Page code
+```php
+<header class="main-header" <?php echo bluerex_get_background('header_bg') ?> >
+```
+
 
 
 
