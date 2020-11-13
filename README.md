@@ -201,7 +201,19 @@ function bluerex_get_background($field, $cat = null, $cover = true){
 <header class="main-header" <?php echo bluerex_get_background('header_bg') ?> >
 ```
 
-
-
-
+## Header & footer templates
+### Get header
+- Код главной страницы от *DOCTYPE* до конца хедера перенесен в файл *header.php*. 
+- Создан файл *header-main.php* куда так же добавлен этот код.
+- Файл *header-main.php* подключен к главной странице функцией *get_header* с параметром *main*.
+```php
+<?php get_header('main') ?>
+```
+### Get footer.
+- Код главной страницы от начала футера и до конца страницы перенесен в файл *footer.php*.
+- Файл *footer.php* подключен к главной странице функцией *get_footer*.
+```php
+<?php get_footer() ?>
+```
+- Из файлов *header.php* и *header-main.php* удален тег title.
 

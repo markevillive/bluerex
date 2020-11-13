@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,6 +17,7 @@
             background-color: #fefefe;
         }
     </style>
+
     <?php wp_head() ?>
 </head>
 <body>
@@ -88,3 +90,6 @@
 
 
 </header><!--------------------------------END MAIN HEADER----------------------------------->
+<?php
+echo "<p>Hello, Header-main! </p>";
+?>
