@@ -136,7 +136,13 @@ add_theme_support(
 ```
 ## Lesson 6 Header menu
 Стили, добавленные в *style.css* не применились к меню, отступов нет, двойное подчеркивание при наведении сохраняется.
-
+```css
+.navbar-expand-lg .navbar-nav a {
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+}
+```
 
 
 
