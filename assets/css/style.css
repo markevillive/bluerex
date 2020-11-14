@@ -130,7 +130,7 @@ h4{
 
 /*=========================================Section-Watch====================================*/
 .section-watch {
-    background: url("../img/map.jpg") center no-repeat;
+    /*background: url("../img/map.jpg") center no-repeat;*/
     background-size: cover;
 }
 .section-watch h3, .section-watch h4{

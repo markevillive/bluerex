@@ -21,6 +21,7 @@
     <?php wp_head() ?>
 </head>
 <body>
+
 <div class="preloader d-flex justify-content-center align-items-center">
     <div class="spinner-border text-danger" style="width: 10rem; height: 10rem ; role="status" >
     <span class="sr-only">Loading...</span>

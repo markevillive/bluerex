@@ -7,48 +7,51 @@ if($design_cat):
         'numberposts' => 3,
         'category' => 3,
     ) );
-    bluerex_debug($posts);
+    //bluerex_debug($posts);
     ?>
-<section class="section-watch section-tabs">
+<section class="section-watch section-tabs"<?php echo bluerex_get_background('section_img', $design_cat) ?>>
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-5">
-                <h3>Dream Big Inspire the World</h3>
-                <h4>We turns creative ideas into your business</h4>
+    <?php if (get_field('section_header',$design_cat)): ?>
+                <h3><?php the_field('section_header', $design_cat) ?></h3>
+    <?php endif; ?>
+
+    <?php if (get_field('description', $design_cat)): ?>
+                <h4><?php echo $design_cat ->description ?></h4>
+    <?php endif; ?>
                 <ul class="nav nav-pills" id="myTab" role="tablist">
+                <?php
+                    $data = [];
+                    $i = 0;
+                    foreach ($posts as  $post):
+                        setup_postdata($post);
+                        $data[$i] ['post_name'] = $post->post_name;
+                        $data[$i] ['url'] = get_the_permalink();
+                        $data[$i] ['content'] = get_the_content('');
+
+                ?>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active rounded-pill" id="webdesign-tab" data-toggle="tab" href="#webdesign" role="tab" aria-controls="webdesign" aria-selected="true">Web design</a>
+                        <a class="nav-link <?php if (!$i) echo 'active'?> rounded-pill" id="<?php echo $post ->post_name ?>-tab" data-toggle="tab" href="#<?php echo $post ->post_name ?>" role="tab" aria-controls="webdesign" aria-selected="true"><?php the_title()?></a>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link rounded-pill" id="mobileapp-tab" data-toggle="tab" href="#mobileapp" role="tab" aria-controls="mobileapp" aria-selected="false">Mobile App</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link rounded-pill" id="branding-tab" data-toggle="tab" href="#branding" role="tab" aria-controls="branding" aria-selected="false">Branding</a>
-                    </li>
+                        <?php
+                            $i++;
+                            endforeach;
+                         ?>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="webdesign" role="tabpanel" aria-labelledby="webdesign-tab">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie nisl accumsan, consequat elit at, feugiat nibh. Nunc nec bibendum erat, id porta odio. Maecenas felis enim, vulputate sit amet congue vitae, aliquet eget lacus. Donec nisl est, tempus at laoreet vel, egestas in diam. Sed tristique vel risus id venenatis. Proin blandit quam ligula, a ultrices diam consectetur a. Aliquam eget euismod arcu. Aliquam scelerisque id est ac blandit. In commodo, velit id dictum auctor, erat dui viverra elit, at semper elit dolor lacinia sapien. Ut nibh massa, aliquam eget nunc eu, malesuada congue diam. Donec vitae porttitor felis, id varius turpis. Nulla eget eros lobortis, pretium sem sed, tincidunt nunc. Aenean pulvinar leo dolor, ut molestie ipsum facilisis a. Mauris tellus orci, eleifend ut hendrerit ut, sodales et neque. In hac habitasse platea dictumst.
-                        </p>
-                        <p><a href="#" class="btn btn-pink btn-shadow">Read More</a> </p>
+                    <?php foreach ($data as $k => $item): ?>
+                    <div class="tab-pane fade show <?php if (!$k) echo 'active'?>" id="<?php echo $item['post_name']?>" role="tabpanel" aria-labelledby="<?php echo $item['post_name']?>-tab">
+                        <?php echo $item['content']?>
+                        <p><a href="<?php echo $item['url']?>" class="btn btn-pink btn-shadow"><?php echo __('Read more', 'bluerex')?></a> </p>
                     </div>
-                    <div class="tab-pane fade" id="mobileapp" role="tabpanel" aria-labelledby="mobileapp-tab">
-                        <p>
-                            Nulla ac malesuada orci. Maecenas maximus lacus ut sollicitudin varius. Donec condimentum, neque ac vulputate mollis, libero nisl convallis elit, sit amet vehicula ligula ligula cursus massa. Morbi interdum, elit eget hendrerit ultricies, felis justo tristique nibh, sit amet tincidunt leo ipsum eget nulla. Nulla venenatis cursus turpis eget dictum. Mauris purus magna, faucibus eget euismod nec, auctor nec tellus. Maecenas justo dui, semper vel varius ultricies, tincidunt a odio. Aenean a molestie nunc, a facilisis augue.
-                        </p>
-                        <p><a href="#" class="btn btn-pink btn-shadow">Read More</a> </p>
-                    </div>
-                    <div class="tab-pane fade" id="branding" role="tabpanel" aria-labelledby="branding-tab">
-                        <p>
-                            Vivamus et viverra leo. Maecenas sagittis nisl in augue sagittis rutrum. Maecenas feugiat, tortor ac eleifend finibus, risus elit malesuada tellus, sed vehicula purus tortor nec orci. Sed ut mi congue mi convallis feugiat ac et odio. Ut eleifend, sapien nec convallis malesuada, tortor purus malesuada eros, ut faucibus nibh sapien et nunc. In nec dolor mauris. Mauris turpis odio, semper id pulvinar in, feugiat at odio. Nullam eleifend vel leo quis rutrum. Sed et erat sed ligula euismod malesuada. Aliquam eu efficitur nunc. Phasellus ut eros sit amet turpis consectetur congue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis non felis id dui sollicitudin feugiat.
-                        </p>
-                        <p><a href="#" class="btn btn-pink btn-shadow">Read More</a> </p>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div><!---End col--->
             <div class="col-lg-6 text-center">
-                <img src="<?php bloginfo('template_url') ?>/assets/img/watch.png" alt="">
+                <?php if (get_field('section_add_img', $design_cat)):?>
+                <img src="<?php echo get_field('section_add_img', $design_cat)?>">
+                <?php endif; ?>
             </div>
         </div><!-----End row----->
     </div><!----End container---->

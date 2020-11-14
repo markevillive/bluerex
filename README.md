@@ -229,3 +229,4 @@ function bluerex_get_background($field, $cat = null, $cover = true){
 - В консоли в разделе записи - рубрики создана рубрика Web Design. Заголовок "Dream Big Inspire the World", Описание "We turns creative ideas into your business", добавлены фоновое и дополнительное изображение.
 - Созданы три статьи в рубрике  Web Design содержащие несколько абзацев Lorem Ipsum.
 ### PHP
+На страницу добавлена возможность динамического отображения всех элементов секции Watch.
