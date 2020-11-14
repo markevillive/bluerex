@@ -236,3 +236,7 @@ function bluerex_get_background($field, $cat = null, $cover = true){
 - Создана рубрика **Progress**, и в нее добавлены 3 записи.
 ### PHP
 Данные записи были выведены в секции **Progress** при помощи функции `get_category()` с параметром 4 (id рубрики Progress) и цикла foreach.
+
+## Lesson 12 Section Lets
+
+

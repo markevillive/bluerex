@@ -67,8 +67,8 @@ if($progress_cat):
         'numberposts' => 3,
         'category' => 4,
     ) );
-   //bluerex_debug($posts);
-    ?>
+
+?>
 <section class="section-progress text-center">
     <div class="container">
         <div class="row">
@@ -82,21 +82,33 @@ if($progress_cat):
         <?php unset($posts);?>
     </div><!----------------------------End container---------------------------->
 </section><!-----------------------End section2----------------------->
+
 <?php endif //if $progress_cat ?>
-    <section class="section-lets text-center">
+
+
+    <?php
+        $lets_cat = get_category(5);
+
+        if($lets_cat):
+    ?>
+    <section class="section-lets text-center" <?php echo bluerex_get_background('section_img',$lets_cat)?>>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3>Let's Grow Together</h3>
-                <h4>We turn creative ideas into your business</h4>
+                <h3><?php echo $lets_cat->name?></h3>
+                <?php if (get_field('section_header',$lets_cat)): ?>
+                <h4><?php echo (get_field('section_header',$lets_cat)) ?></h4>
+                <?php endif; ?>
+
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin efficitur purus turpis, et suscipit quam hendrerit accumsan. Donec suscipit felis a eros dignissim, nec convallis neque vehicula. Aliquam ut risus nec purus placerat rhoncus. Maecenas efficitur, erat sed pellentesque porta, mi tellus rhoncus felis, sed sollicitudin turpis enim ultricies augue. Morbi interdum quis tellus quis mollis. Cras ut porttitor nibh. Maecenas pulvinar lectus magna, at laoreet ligula finibus vitae. Aenean vestibulum magna non malesuada ultrices. Nulla non luctus diam, in pretium tortor.
+                    <?php echo $lets_cat->description ?>
                 </p>
-                <p><a href="#" class="btn btn-pink btn-shadow">Read More</a> </p>
+                <p><a href="<?php echo get_category_link(5) ?>" class="btn btn-pink btn-shadow"><?php echo __('Read more', 'bluerex') ?></a> </p>
             </div>
         </div><!----End row---->
     </div><!-------End Container------->
 </section><!-----------------------End section3----------------------->
+    <?php endif //if $lets_cat ?>
 <section class="section-design">
     <div class="container">
         <div class="row">

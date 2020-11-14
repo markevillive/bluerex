@@ -200,8 +200,7 @@ h4{
 
 /*=================================Section-lets=================================*/
 .section-lets{
-    background: url("../img/story.png") center no-repeat;
-    background-size: cover;
+    background: #525099;
     color: #fff;
 }
 
