@@ -1,13 +1,13 @@
 <?php get_header('main') ?>
 <?php
 $design_cat = get_category(3);
-//bluerex_debug($design_cat);
+
 if($design_cat):
     $posts = get_posts( array(
         'numberposts' => 3,
         'category' => 3,
     ) );
-    //bluerex_debug($posts);
+
     ?>
 <section class="section-watch section-tabs"<?php echo bluerex_get_background('section_img', $design_cat) ?>>
     <div class="container">
@@ -57,39 +57,33 @@ if($design_cat):
     </div><!----End container---->
 
 </section><!-----------------------End section1----------------------->
-<?php endif ?>
+<?php endif //if $design_cat ?>
+
+<?php
+$progress_cat = get_category(4);
+
+if($progress_cat):
+    $posts = get_posts( array(
+        'numberposts' => 3,
+        'category' => 4,
+    ) );
+   //bluerex_debug($posts);
+    ?>
 <section class="section-progress text-center">
     <div class="container">
         <div class="row">
+            <?php foreach ($posts as $post):?>
             <div class="col-md-4 progress-item">
-                <div><i class="fas fa-bullhorn"></i> </div>
-                <div class="num">500+</div>
-                <h4><span>Successfully</span> completed projects</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis eu felis et convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam convallis egestas aliquam. Nam massa sem, blandit a risus vel, ultrices consequat elit. Integer sodales, lacus eget varius consequat, velit sem venenatis ligula, in varius nisl ligula eu est. In sem nibh, placerat eu mauris et, posuere facilisis felis. Pellentesque ac tincidunt eros, in scelerisque lectus. Mauris nibh nisi, pretium eu dictum ac, viverra laoreet urna. Quisque commodo accumsan erat sit amet convallis.
-                </p>
+                <?php echo $post->post_content; ?>
 
             </div><!------End col----------->
-            <div class="col-md-4 progress-item">
-                <div><i class="fas fa-bullhorn"></i> </div>
-                <div class="num">254+</div>
-                <h4><span>Highly</span> specialised employees </h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis eu felis et convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam convallis egestas aliquam. Nam massa sem, blandit a risus vel, ultrices consequat elit. Integer sodales, lacus eget varius consequat, velit sem venenatis ligula, in varius nisl ligula eu est. In sem nibh, placerat eu mauris et, posuere facilisis felis. Pellentesque ac tincidunt eros, in scelerisque lectus. Mauris nibh nisi, pretium eu dictum ac, viverra laoreet urna. Quisque commodo accumsan erat sit amet convallis.
-                </p>
-            </div><!------End col----------->
-            <div class="col-md-4 progress-item">
-                <div><i class="fas fa-bullhorn"></i> </div>
-                <div class="num">45+</div>
-                <h4><span>Avards</span> around the world</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lobortis eu felis et convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam convallis egestas aliquam. Nam massa sem, blandit a risus vel, ultrices consequat elit. Integer sodales, lacus eget varius consequat, velit sem venenatis ligula, in varius nisl ligula eu est. In sem nibh, placerat eu mauris et, posuere facilisis felis. Pellentesque ac tincidunt eros, in scelerisque lectus. Mauris nibh nisi, pretium eu dictum ac, viverra laoreet urna. Quisque commodo accumsan erat sit amet convallis.
-                </p>
-            </div><!------End col----------->
+           <?php endforeach; ?>
         </div><!----------------End row---------------->
+        <?php unset($posts);?>
     </div><!----------------------------End container---------------------------->
 </section><!-----------------------End section2----------------------->
-<section class="section-lets text-center">
+<?php endif //if $progress_cat ?>
+    <section class="section-lets text-center">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
