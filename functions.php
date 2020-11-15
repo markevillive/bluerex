@@ -187,7 +187,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 //--------------CUSTOM FUNCTIONS
 function bluerex_debug($data){
-    echo '<pre>' . print_r($data) . '</pre>';
+    echo '<p></p><pre>' . print_r($data) . '</pre></p>';
 }
 
 function bluerex_get_background($field, $cat = null, $cover = true){

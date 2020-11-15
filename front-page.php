@@ -107,49 +107,64 @@ if($progress_cat):
             </div>
         </div><!----End row---->
     </div><!-------End Container------->
+        <?php unset($posts);?>
 </section><!-----------------------End section3----------------------->
     <?php endif //if $lets_cat ?>
+<?php
+$graphic_cat = get_category(6);
+
+if($graphic_cat):
+    $posts = get_posts( array(
+        'numberposts' => 2,
+        'category' => 6,
+    ) );
+    //bluerex_debug(get_fields($graphic_cat));
+    ?>
+
 <section class="section-design">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <h3>We are best and creative agency</h3>
-                <h4>We turn creative ideas into your business</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet lacus nec neque convallis aliquet mollis vel ligula. Praesent tempus tincidunt sem non dictum. Etiam mi tellus, posuere at pulvinar ut, sodales vitae libero. Nulla feugiat diam enim, in vehicula quam ullamcorper in. Donec vestibulum, sapien sed dapibus cursus, nisi nibh hendrerit tellus, placerat ultricies neque arcu quis eros. In nibh velit, ultrices eget tempus eget, blandit vitae mauris. Ut quam mauris, gravida non ante quis, rhoncus tristique purus. Sed mollis mattis odio. In hac habitasse platea dictumst. Fusce vitae mauris id est suscipit sodales. Praesent laoreet, purus sed rhoncus consequat, mi massa volutpat dui, eu lobortis felis nunc a orci. Nam ac nibh nec tortor porta tincidunt in vel dui.
-                </p>
+                <?php if ($graphic_cat): ?>
+                <h3><?php echo $graphic_cat->name ?></h3>
+                <?php endif; ?>
+                <?php if (get_field('section_header',$graphic_cat)): ?>
+                <h4><?php echo get_field('section_header',$graphic_cat) ?></h4>
+                <?php endif;?>
+
+                <p><?php echo $graphic_cat-> description?></p>
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <span><i class="far fa-comments"></i></span>
-                        <h2>Graphic Design</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in tellus eros. Curabitur ut ultrices.
-                        </p>
-                        <p>
-                            <a href="#" class="btn btn-pink btn-shadow">Read more</a>
-                        </p>
-                    </div><!--/col-->
-                    <div class="col-md-6 mb-3">
-                        <span><i class="fas fa-bullhorn"></i></span>
-                        <h2>Graphic design</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in tellus eros. Curabitur ut ultrices.
-                        </p>
-                        <p>
-                            <a href="#" class="btn btn-pink btn-shadow">Read more</a>
-                        </p>
-                    </div><!--/col-->
+                    <?php foreach ($posts as $post): setup_postdata($post) ?>
+                        <div class="col-md-6 mb-3">
+                            <span><?php the_field('icon') ?></span>
+                            <h2><?php the_title() ?></h2>
+                            <p><?php the_content('') ?></p>
+                            <p>
+                                <a href="<?php the_permalink() ?>" class="btn btn-pink btn-shadow"><?php echo __('Read more', 'bluerex') ?></a>
+                            </p>
+                        </div><!--/col-->
+                    <?php endforeach; ?>
                 </div><!--/row-->
             </div><!---End col--->
             <div class="col-lg-6">
                 <div class="embed-responsive embed-responsive-16by9 mt-5">
-                    <iframe id="videoPlayer" class="embed-responsive-item" src="https://www.youtube.com/embed/--4WpisLl9k?enablejsapi=1&amp;html5=1&amp;rel=0&amp;&amp;showinfo=0" allowfullscreen></iframe>
-                    <div id="videoPlayBtn"></div>
+                    <?php
+                    if ($video = get_field('section_video', $graphic_cat)){
+                        //bluerex_debug($video);
+                        $video = str_replace('watch?v=', 'embed/', $video);
+                        //echo $video;
+                    }
+                    ?>
+                    <iframe id="videoPlayer" class="embed-responsive-item" src="<?php echo $video?>?enablejsapi=1&amp;html5=1&amp;rel=0&amp;&amp;showinfo=0" allowfullscreen></iframe>
+                                                <div id="videoPlayBtn"></div>
+                    </div>
+
                 </div>
             </div><!---End col--->
         </div><!----End row---->
     </div><!-------End Container------->
 </section><!-----------------------End section3----------------------->
+<?php endif; // $graphic_cat ?>
 <section class="section-work section-tabs">
     <div class="container">
         <div class="row">
