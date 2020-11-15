@@ -55,7 +55,7 @@ if($design_cat):
             </div>
         </div><!-----End row----->
     </div><!----End container---->
-
+<?php wp_reset_postdata(); unset($data, $posts); ?>
 </section><!-----------------------End section1----------------------->
 <?php endif //if $design_cat ?>
 
@@ -157,136 +157,63 @@ if($graphic_cat):
                     ?>
                     <iframe id="videoPlayer" class="embed-responsive-item" src="<?php echo $video?>?enablejsapi=1&amp;html5=1&amp;rel=0&amp;&amp;showinfo=0" allowfullscreen></iframe>
                                                 <div id="videoPlayBtn"></div>
-                    </div>
+
 
                 </div>
             </div><!---End col--->
         </div><!----End row---->
     </div><!-------End Container------->
+    <?php wp_reset_postdata(); unset($posts); ?>
 </section><!-----------------------End section3----------------------->
 <?php endif; // $graphic_cat ?>
+<?php
+$work_cat = get_category(7);
+
+if($work_cat):
+    $posts = get_posts( array(
+        'numberposts' => 3,
+        'category' => 7,
+    ) );
+    //bluerex_debug($posts);
+?>
 <section class="section-work section-tabs">
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2 text-center">
-                <h2>Our Recent Works</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus eleifend consequat. Vivamus sed justo sagittis, tincidunt neque eget, dignissim felis. Nam id odio ac justo feugiat commodo. Praesent vitae finibus metus, non commodo enim. Praesent auctor lacus ac sollicitudin viverra. Maecenas imperdiet eget sem elementum rutrum. Aliquam scelerisque accumsan efficitur. Fusce pharetra tincidunt orci et ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent ornare elementum libero, sit amet tempus felis facilisis sodales. Integer a ante semper, lacinia lacus et, iaculis justo. Sed vestibulum mauris sagittis congue maximus. Aliquam vulputate eu enim a sagittis.
-                </p>
+                <?php if($work_cat): ?>
+                    <h2><?= $work_cat->name ?></h2>
+                    <p><?php echo $work_cat->description ?></p>
+                <?php endif; ?>
             </div>
             <div class="col-md-12">
                 <ul class="nav nav-pills justify-content-center" id="myTab-gallery" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active rounded-pill" id="webdesign-tab2" data-toggle="tab" href="#webdesign2" role="tab" aria-controls="webdesign2" aria-selected="true">Webdesign</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill" id="mobileapp-tab2" data-toggle="tab" href="#mobileapp2" role="tab" aria-controls="mobileapp2" aria-selected="false">Mobile app</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill" id="branding-tab2" data-toggle="tab" href="#branding2" role="tab" aria-controls="branding2" aria-selected="false">Branding</a>
-                    </li>
+                    <?php
+                    $data = [];
+                    $i = 0;
+                    foreach($posts as $post):
+                        setup_postdata($post);
+                        $data[$i]['post_name'] = $post->post_name;
+                        $data[$i]['url'] = get_the_permalink();
+                        $data[$i]['content'] = get_the_content('');
+                        ?>
+                        <li class="nav-item">
+                            <a class="nav-link rounded-pill <?php if(!$i) echo 'active' ?>" id="<?= $post->post_name ?>-tab" data-toggle="tab" href="#<?= $post->post_name ?>" role="tab" aria-controls="webdesign" aria-selected="true"><?php the_title() ?></a>
+                        </li>
+                        <?php $i++; endforeach; ?>
                 </ul>
                 <div class="tab-content" id="myTabContent2">
-                    <div class="tab-pane fade show active" id="webdesign2" role="tabpanel" aria-labelledby="webdesign-tab2">
-                        <div class="gallery text-center row">
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/bag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/bag_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/beer.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/beer_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/book.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/book_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/box.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/box_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/cup.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/cup_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/labeltag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/labeltag_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/lotion.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/lotion_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shampoo.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shampoo_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shirt.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shirt_s.jpg"></a>
-                            </div>
-                        </div><!--gallery-->
-                    </div>
-                    <div class="tab-pane fade" id="mobileapp2" role="tabpanel" aria-labelledby="mobileapp-tab2">
-                        <div class="gallery text-center row">
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/bag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/bag_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/beer.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/beer_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/book.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/book_s.jpg"></a>
-                            </div>
-
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/lotion.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/lotion_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shampoo.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shampoo_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shirt.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shirt_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/box.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/box_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/cup.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/cup_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/labeltag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/labeltag_s.jpg"></a>
-                            </div>
-                        </div><!--gallery-->
-                    </div>
-                    <div class="tab-pane fade" id="branding2" role="tabpanel" aria-labelledby="branding-tab2">
-                        <div class="gallery text-center row">
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/lotion.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/lotion_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shampoo.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shampoo_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/shirt.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/shirt_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/bag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/bag_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/beer.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/beer_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/book.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/book_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/box.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/box_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/cup.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/cup_s.jpg"></a>
-                            </div>
-                            <div class="col-sm-4 gallery-item">
-                                <a href="img/galery/labeltag.jpg"><img src="<?php bloginfo( 'template_url') ?>/assets/img/galery/labeltag_s.jpg"></a>
-                            </div>
-
-                        </div><!--gallery-->
-                    </div>
+                    <?php foreach ($data as $k => $item): ?>
+                        <div class="tab-pane fade show <?php if (!$k) echo 'active'?>" id="<?php echo $item['post_name']?>" role="tabpanel" aria-labelledby="<?php echo $item['post_name']?>-tab">
+                            <?php echo $item['content']?>
+                            <p><a href="<?php echo $item['url']?>" class="btn btn-pink btn-shadow"><?php echo __('Read more', 'bluerex')?></a> </p>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div><!------Col-md-12----->
         </div>
     </div><!-------End Container------->
 </section><!-----------------------End section3----------------------->
+<?php endif; //$work_cat ?>
 <section class="section-brands text-center">
     <div class="container">
         <div class="row">
