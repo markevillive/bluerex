@@ -55,7 +55,7 @@ if($design_cat):
             </div>
         </div><!-----End row----->
     </div><!----End container---->
-
+<?php wp_reset_postdata(); unset($data,$posts) ?>
 </section><!-----------------------End section1----------------------->
 <?php endif //if $design_cat ?>
 
@@ -163,8 +163,10 @@ if($graphic_cat):
             </div><!---End col--->
         </div><!----End row---->
     </div><!-------End Container------->
+    <?php wp_reset_postdata(); unset($posts) ?>
 </section><!-----------------------End section3----------------------->
 <?php endif; // $graphic_cat ?>
+
 <section class="section-work section-tabs">
     <div class="container">
         <div class="row">
