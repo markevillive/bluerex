@@ -239,5 +239,8 @@ function bluerex_get_background($field, $cat = null, $cover = true){
 
 ## Lesson 12 Section Lets
 
-#lesson 13 Section Design
+# lesson 13 Section Design
+
+# lesson 14 Gallery 
+
 
