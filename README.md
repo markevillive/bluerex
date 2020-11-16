@@ -243,4 +243,33 @@ function bluerex_get_background($field, $cat = null, $cover = true){
 
 # lesson 14 Gallery 
 
+# Lesson 15 Custom post types
+Добавлена кастомная функция `bluerex_reviews`, добавляющая тип записи "Отзывы"
+
+```php
+<?php
+add_action('init', 'bluerex_reviews');
+function bluerex_reviews(){
+    register_post_type('revievs', array( 'labels' => array(
+        'name' => 'Отзывы',
+        'singular_name' => 'Отзыв',
+        'add_new'=> __('Добавить новый отзыв', 'bluerex'),
+        'add_new_item' => __('Новый отзыв', 'bluerex'),
+        'edit_item' => __('Редактировать', 'bluerex'),
+        'new_item' => __('Новый отзыв', 'bluerex'),
+        'view_item' => __('Просмотр', 'bluerex'),
+        'menu_name' => 'Отзывы клиентов',
+        'all_items' => 'Все отзывы',
+
+        ),
+     'public' => true,
+     'supports' => array('title', 'editor','thumbnail'),
+     'menu_icon' => 'dashicons-universal-access',
+      //'show_in_rest' => true,
+
+    ));
+}
+?>
+```
+
 
