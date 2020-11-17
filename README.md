@@ -244,7 +244,7 @@ function bluerex_get_background($field, $cat = null, $cover = true){
 # lesson 14 Gallery 
 
 # Lesson 15 Custom post types
-Добавлена кастомная функция `bluerex_reviews`, добавляющая тип записи "Отзывы"
+- Добавлена кастомная функция `bluerex_reviews`, добавляющая тип записи "Отзывы"
 
 ```php
 <?php
@@ -271,7 +271,14 @@ function bluerex_reviews(){
 }
 ?>
 ```
+- Созданы дополнительные поля для этого типа записей.
+- Добавлено 3 записи этого типа.
+
 # Section Reviews
+
+- Complete.
+# Section Social
+- Complete
 
 
 

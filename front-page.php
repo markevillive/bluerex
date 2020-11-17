@@ -212,6 +212,7 @@ if($work_cat):
             </div><!------Col-md-12----->
         </div>
     </div><!-------End Container------->
+    <?php wp_reset_postdata(); unset($data, $posts); ?>
 </section><!-----------------------End section3----------------------->
 <?php endif; //$work_cat ?>
 <section class="section-brands text-center">
@@ -231,66 +232,47 @@ if($work_cat):
 
     </div><!-----------End container----------->
 </section><!-----------------------End section3--------------------->
+<?php
+$posts = get_posts( array(
+    'post_type' => 'reviews',
+) );
+if($posts):
+    //bluerex_debug($posts);
+?>
 <section class="section-reviews">
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            <?php for($i = 0; $i < count($posts); $i++): ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="<?= $i ?>" <?php if(!$i) echo 'class="active"' ?>></li>
+            <?php endfor; ?>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <div class="carousel-caption">
-                                <h3>Our happy client</h3>
-                                <h4>Testemonials</h4>
-                                <blockquote class="blockquote">
-                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                    <footer class="blockquote-footer">Mr. <cite title="Source Title">John Doe</cite></footer>
-                                </blockquote>
-                            </div>
-                        </div><!--END COL-SM-7-->
-                        <div class="col-sm-5 d-none d-sm-block"><img src="<?php bloginfo( 'template_url') ?>/assets/img/client.png" alt="John Doe"></div><!--END COL-SM-5-->
-                    </div><!---END ROW--->
-                </div><!---------END CONTAINER-------->
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <div class="carousel-caption">
-                                <h3>Our happy client</h3>
-                                <h4>Testemonials</h4>
-                                <blockquote class="blockquote">
-                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                    <footer class="blockquote-footer">Mr. <cite title="Source Title">Robert Lee</cite></footer>
-                                </blockquote>
-                            </div>
-                        </div><!--END COL-SM-7-->
-                        <div class="col-sm-5 d-none d-sm-block"><img src="<?php bloginfo( 'template_url') ?>/assets/img/lee.png" alt="Robert lee"></div><!--END COL-SM-5-->
-                    </div><!---END ROW--->
-                </div><!---------END CONTAINER-------->
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <div class="carousel-caption">
-                                <h3>Our happy client</h3>
-                                <h4>Testemonials</h4>
-                                <blockquote class="blockquote">
-                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                    <footer class="blockquote-footer">Mr. <cite title="Source Title">Natan Forrest</cite></footer>
-                                </blockquote>
-                            </div>
-                        </div><!--END COL-SM-7-->
-                        <div class="col-sm-5 d-none d-sm-block"><img src="<?php bloginfo( 'template_url') ?>/assets/img/forrest.png" alt="Nataniel Forrest"></div><!--END COL-SM-5-->
-                    </div><!---END ROW--->
-                </div><!---------END CONTAINER-------->
+            <?php $i = 0; foreach($posts as $post): ?>
+                <div class="carousel-item <?php if(!$i) echo 'active' ?>">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <div class="carousel-caption">
+                                    <h3><?= $post->post_title ?></h3>
 
-            </div>
+                                    <h4><?= the_field('rewiev_header') ?></h4>
+                                    <blockquote class="blockquote">
+                                        <p class="mb-0"><?= $post->post_content ?></p>
+                                        <footer class="blockquote-footer"><?= the_field('review_author') ?></footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <!-- /.col-sm-7 -->
+                            <div class="col-sm-5 d-none d-sm-block">
+                                <?php if(has_post_thumbnail($post->ID)): ?>
+                                    <?= get_the_post_thumbnail($post->ID) ?>
+                                <?php endif; ?>
+                            </div>
+                            <!-- /.col-sm-5 -->
+                        </div>
+                    </div>
+                </div>
+                <?php $i++; endforeach; ?>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -301,7 +283,9 @@ if($work_cat):
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <?php wp_reset_postdata(); unset($posts); ?>
 </section><!-----------------------End section--------------------->
+<?php endif; // $reviews ?>
 <section class="section-form text-center">
     <div class="container">
         <div class="row">
@@ -327,14 +311,28 @@ if($work_cat):
         </div>
     </div>
 </section><!-----------------------End section-form--------------------->
+<?php
+$social_cat = get_category(22);
+if ($social_cat):
+    //bluerex_debug($social_cat);
+?>
 <section class="section-social text-center">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3"><a href="#"><h5>Facebook</h5></a> </div>
-            <div class="col-sm-3"><a href="#"><h5>Twitter</h5></a> </div>
-            <div class="col-sm-3"><a href="#"><h5>Linkedin</h5></a> </div>
-            <div class="col-sm-3"><a href="#"><h5>Instagram</h5></a> </div>
+            <?php if(get_field('facebook_link',$social_cat)): ?>
+            <div class="col-sm-3"><a href="<?php echo the_field('facebook_link',$social_cat);?>"><h5><i class="fab fa-facebook-square"></i>&nbsp;Facebook</h5></a> </div>
+            <?php endif;?>
+            <?php if(get_field('twitter_link',$social_cat)): ?>
+            <div class="col-sm-3"><a href="<?php echo the_field('twitter_link',$social_cat);?>"><h5><i class="fab fa-twitter-square"></i>&nbsp;Twitter</h5></a> </div>
+            <?php endif; ?>
+            <?php if(get_field('linkedin_link',$social_cat)): ?>
+            <div class="col-sm-3"><a href="<?php echo the_field('linkedin_link',$social_cat);?>"><h5><i class="fab fa-linkedin-in"></i>&nbsp;Linkedin</h5></a> </div>
+            <?php endif; ?>
+            <?php if (get_field('github_link', $social_cat)): ?>
+            <div class="col-sm-3"><a href="<?php echo the_field('github_link', $social_cat);?>"><h5><i class="fab fa-github-square">&nbsp;</i>Github</h5></a> </div>
+            <?php endif; ?>
         </div><!------------------End row----------------->
     </div><!---------END CONTAINER-------------------->
 </section><!-----------------------End section-form--------------------->
+<?php endif; //$social_cat?>
 <?php get_footer() ?>
