@@ -241,3 +241,12 @@ function bluerex_reviews(){
         //'show_in_rest' => true,
     ) );
 }
+//--------------------------------------EXCLUDE CATEGORIES
+
+function exclude_category($query){
+    if ($query->is_home){
+        $query->set('category__not_in',array(4,7));
+    }
+    return $query;
+}
+add_filter('pre_get_posts', 'exclude_category');
