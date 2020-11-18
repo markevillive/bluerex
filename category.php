@@ -22,10 +22,10 @@
                     </article>
                     <!-----------------END ARTICLE-PREVIEW---------------------->
                 <?php endwhile; ?>
-                    <?php the_posts_pagination(array(
-                        'end_size' => 1,
-                        'mid_size' => 1,
-                        'type' => 'list',
+                <?php the_posts_pagination(array(
+                    'end_size' => 1,
+                    'mid_size' => 1,
+                    'type' => 'list',
                     ))?>
                     <!--<nav aria-label="...">
                         <ul class="pagination">
@@ -57,4 +57,3 @@
 </section>
 
 <?php get_footer() ?>
-

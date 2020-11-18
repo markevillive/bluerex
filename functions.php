@@ -124,16 +124,37 @@ add_action( 'after_setup_theme', 'bluerex_content_width', 0 );
 function bluerex_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'bluerex' ),
-			'id'            => 'sidebar-1',
+			'name'          => esc_html__( 'Footer Left', 'bluerex' ),
+			'id'            => 'sidebar-footer-1',
 			'description'   => esc_html__( 'Add widgets here.', 'bluerex' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_widget' => '<div id="%1$s" class="widget %2$s col-6">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h5 >',
+			'after_title'   => '</h5>',
 		)
 	);
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Footer Right', 'bluerex' ),
+            'id'            => 'sidebar-footer-2',
+            'description'   => esc_html__( 'Add widgets here.', 'bluerex' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s ">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h5 >',
+            'after_title'   => '</h5>',
+        )
+    );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Sidebar Widgets', 'bluerex' ),
+        'id'            => 'sidebar-widgets',
+        'description'   => esc_html__( 'Add widgets here.', 'bluerex' ),
+        'before_widget' => '<div id="%1$s" class="sidebar-widget  widget-categories widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5 class="widget-title">',
+        'after_title'   => '</h5>',
+    ) );
 }
+
 add_action( 'widgets_init', 'bluerex_widgets_init' );
 
 /**
@@ -220,3 +241,12 @@ function bluerex_reviews(){
         //'show_in_rest' => true,
     ) );
 }
+//--------------------------------------EXCLUDE CATEGORIES
+
+function exclude_category($query){
+    if ($query->is_home){
+        $query->set('category__not_in',array(4,7));
+    }
+    return $query;
+}
+add_filter('pre_get_posts', 'exclude_category');
