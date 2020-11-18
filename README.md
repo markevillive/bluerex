@@ -239,11 +239,11 @@ function bluerex_get_background($field, $cat = null, $cover = true){
 
 ## Lesson 12 Section Lets
 
-# lesson 13 Section Design
+## lesson 13 Section Design
 
-# lesson 14 Gallery 
+## lesson 14 Gallery 
 
-# Lesson 15 Custom post types
+## Lesson 15 Custom post types
 - Добавлена кастомная функция `bluerex_reviews`, добавляющая тип записи "Отзывы"
 
 ```php
@@ -274,12 +274,12 @@ function bluerex_reviews(){
 - Созданы дополнительные поля для этого типа записей.
 - Добавлено 3 записи этого типа.
 
-# Section Reviews
+## Section Reviews
 
 - Complete.
-# Section Social
+## Section Social
 - Complete
-# Section Form
+## Section Form
 
 ## Plugin "Contact Form 7"
 
@@ -287,7 +287,10 @@ function bluerex_reviews(){
 - Создана форма 
 - Coздана страница "Contact" с шорткодом этой формы.
 
-- 
+## Lesson 19
+
+## Lesson 20
+
 
 
 
