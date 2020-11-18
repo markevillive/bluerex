@@ -512,7 +512,60 @@ div.wpcf7-mail-sent-ok{
 
 }
 
+
+ul.page-numbers{
+    list-style: none;
+    display: flex;
+}
+ul.page-numbers a.page-numbers,
+ul.page-numbers span{
+    color: #da1757;
+    transition: all .5s;
+    padding: .5rem 1rem;
+    position: relative;
+    display: block;
+    margin-left: -1px;
+    line-height: 1.25;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+ul.page-numbers span.current{
+    background-color: #da1757;
+    border-color: #da1757;
+    color: #fff;
+}
+ul.page-numbers a.page-numbers:hover{
+    background-color: #f42267;
+    color: #fff;
+    border-color: #f42267;
+    text-decoration: none;
+}
+
 /*=======================================SIDEBAR===================================*/
+.widget-categories ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.widget-categories ul li::before{
+    content: '\f138';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #da1757;
+    font-size: 14px;
+}
+.widget-categories ul li a{
+    padding-left: 10px;
+    font-size: 14px;
+    color: #2f2f2f;
+    margin-bottom: 10px;
+    display: inline-block;
+    transition: all .5s;
+
+}
+.widget-categories ul li a:hover{
+    color: #da1757;
+}
 .widget-title{
     color: #484848;
     font-size: 20px;
@@ -528,31 +581,6 @@ div.wpcf7-mail-sent-ok{
     top: 30px;
     width: 30px;
     background-color: #da1757;
-}
-.widget-category ul{
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-.widget-category ul li::before{
-    content: '\f138';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    color: #da1757;
-    font-size: 14px;
-}
-.widget-category ul li a{
-    padding-left: 10px;
-    font-size: 14px;
-    color: #2f2f2f;
-    margin-bottom: 10px;
-    display: inline-block;
-    transition: all .5s;
-
-}
-.widget-category ul li a:hover{
-    color: #da1757;
-
 }
 /*=====================================SINGLE=======================================*/
 .article-preview address{
