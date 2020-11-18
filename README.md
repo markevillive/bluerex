@@ -279,6 +279,15 @@ function bluerex_reviews(){
 - Complete.
 # Section Social
 - Complete
+# Section Form
+
+## Plugin "Contact Form 7"
+
+- Установлен плагин "Contact Form 7"
+- Создана форма 
+- Coздана страница "Contact" с шорткодом этой формы.
+
+- 
 
 
 

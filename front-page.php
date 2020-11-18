@@ -286,31 +286,25 @@ if($posts):
     <?php wp_reset_postdata(); unset($posts); ?>
 </section><!-----------------------End section--------------------->
 <?php endif; // $reviews ?>
+<?php
+$contact = get_page_by_title('Contact');
+if ($contact):
+
+    //setup_postdata($contact);
+    //the_content();
+
+
+?>
 <section class="section-form text-center">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h4>Need Help?</h4>
-                <h5>Don't Forget to Contact With Us</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente iusto modi illo quasi maiores iure expedita vel quo, magnam quia temporibus consectetur unde, repellendus odit culpa rerum. Suscipit, nihil, provident!</p>
-
-                <form class="text-left">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <input type="text" class="form-control" placeholder="Name">
-                        </div>
-                        <div class="col-md-5">
-                            <input type="email" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="col-md-2">
-                            <button type="submit" class="btn btn-violet btn-shadow">Submit</button>
-                        </div>
-                    </div>
-                </form>
+                <?php echo do_shortcode( $contact->post_content);?>
             </div>
         </div>
     </div>
 </section><!-----------------------End section-form--------------------->
+<?php endif; //$contact ?>
 <?php
 $social_cat = get_category(22);
 if ($social_cat):
