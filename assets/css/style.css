@@ -26,7 +26,17 @@ h4{
     padding: .5rem 1rem;
     text-decoration: none;
 }
-
+div.wpcf7 .ajax-loader{
+    background-image: url("../img/Spinner-0.7s-40px .svg");
+    width: 40px;
+    height: 40px;
+}
+span.wpcf7-not-valid-tip{
+    color: #fff;
+}
+div.wpcf7-mail-sent-ok{
+    border: 2px solid #8EE47c;
+}
 /*==================================Header======================================================*/
 .main-header{
    /* background: url("../img/main_1.jpg") center no-repeat;
